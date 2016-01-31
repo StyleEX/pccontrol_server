@@ -1,0 +1,9 @@
+[Unit]
+Description=Control volume from phone
+
+[Service]
+ExecStart=/home/vladimirov/go/bin/pccontrol_server
+
+[Install]
+WantedBy=multi-user.target
+
