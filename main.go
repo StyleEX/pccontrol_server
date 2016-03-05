@@ -33,7 +33,7 @@ type SystemService struct{}
 func (h *SystemService) Shutdown(r *http.Request, args *ShutdownArgs, res *json2.EmptyResponse) error {
 	if args.Minutes > 0 {
 		log.Printf("Set shutdown after %d minutes", args.Minutes)
-		output, _ := exec.Command("shutdown", "-P", "-h", fmt.Sprintf("+%d", args.Minutes)).CombinedOutput()
+		output, _ := exec.Command("shutdown", "-h", fmt.Sprintf("+%d", args.Minutes)).CombinedOutput()
 		log.Println(string(output[:]))
 	} else {
 		log.Println("Disable shutdown")
